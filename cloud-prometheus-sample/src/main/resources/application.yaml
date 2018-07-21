@@ -1,0 +1,18 @@
+server:
+  port: 9092
+spring:
+  application:
+    name: cloud-prometheus-sample
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:9091/eureka/
+# 这里只暴露普罗米修斯和健康检查的端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
